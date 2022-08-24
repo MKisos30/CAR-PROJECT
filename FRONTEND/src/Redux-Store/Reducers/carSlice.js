@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-export const getByCategoryCars = createAsyncThunk('car/getCars', async ({category}) => {
+export const getByCategoryCars = createAsyncThunk('car/getCars', async ({ category, color, ccm }) => {
     try {
-        const {data} = await axios.get(`/product/get-by-category?type=${category}`)
-        
+        console.log(color,ccm)
+        const { data } = await axios.get(`/product/get-by-category?type=${category}&color=${color}&ccm=${ccm}`)
+
         const {error} = data
         if (error) throw new Error(error)
         return data

@@ -27,10 +27,24 @@ exports.addNewProduct = async (req, res) => {
 
 exports.getByCategory = async (req, res) => {
     try {
-        const { type } = req.query;
+        const { type, color, ccm } = req.query;
 
         const category = await Product.find({ type })
-        res.send(category)
+        //res.send(category)
+        console.log(color, ccm)
+
+        let filtered
+        if (color.length > 0 && ccm.length > 0) {
+            filtered = category.filter((item) => item.color === color && item.engineCapacity === ccm)
+        } else if (color.length > 0) {
+            filtered = category.filter((item) => item.color === color)
+        } else if (ccm.length > 0) {
+            filtered = category.filter((item) => item.engineCapacity === ccm)
+        } else {
+            filtered = category
+        }
+
+        res.send(filtered)
     } catch (error) {
         res.send(error)
     }

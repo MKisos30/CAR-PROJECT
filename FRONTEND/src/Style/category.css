@@ -17,3 +17,53 @@
     font-family: 'Kanit', sans-serif;
     color: rgb(156, 75, 82);
 }
+
+.sortAndFilter {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0.5% auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sortDisplay, .filterColorDisplay,.filterCcmDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% 1%;
+    padding: 0% 1%;
+    width: 50%;
+}
+
+
+.sortDisplay, .filterColorDisplay {
+    border-right: 1px solid black;
+}
+
+.sortDisplay__title, .filterColorDisplay__title, .filterCcmDisplay__title {
+    width: 7em;
+}
+
+
+
+
+/* .filterColorDisplay__title {
+     width: 7em; 
+} */
+
+
+
+/* .filterCcmDisplay__title {
+    width: 30%; 
+} */
+
+/* .filterCcmDisplay input {
+    width: 10%;
+} */
+
+.activeColor {
+    color: blue;
+    font-weight: bold;
+}
