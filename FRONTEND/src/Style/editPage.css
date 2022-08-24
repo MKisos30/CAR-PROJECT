@@ -1,0 +1,92 @@
+.carEdit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-family: 'Roboto', sans-serif;
+}
+
+.carEdit__details {
+    border: 1px solid black;
+    margin: 1% 2%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.carEdit__details--buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: yellow;
+}
+
+.carEdit__details--buttons button{
+    width: 30%;
+    margin: 3% 2%;
+}
+
+.editWindow {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top:0;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+.editWindow__background {
+    background-color: white;
+    padding: 3% 5%;
+}
+
+.editWindow__closeBtn {
+    position: absolute;
+    top:3vh;
+    background-color: white;
+    cursor: pointer;
+    left: 2%;
+    padding: 0.4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editWindow input {
+    margin: 1% 0%;
+    padding: 0.5% 2%;
+    width: clamp(230px, 10vw, 700px);
+}
+
+ .editWindow button {
+     width: clamp(230px, 17vw, 700px);
+ }
+
+.editWindow__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formNewCar {
+    width: 50%;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Gideon Roman', cursive;
+}
+
+.formNewCar input {
+    margin: 1% 0%;
+    padding: 0.5% 2%;
+    font-family: 'Gideon Roman', cursive;
+}

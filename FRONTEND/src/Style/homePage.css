@@ -1,0 +1,25 @@
+.homePage-title {
+    text-align: center;
+    color: rgb(11, 84, 60);
+    font-family: 'Square Peg', cursive;
+    font-size: 3rem;
+}
+
+.categories {
+    width: clamp(250px, 80%, 1500px);
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.categories a {
+    margin: 6% 0%;
+    width: 40%;
+    font-size: clamp(20px, 1.8vw, 50px);
+    border: 1px black solid;
+    text-align: center;
+    padding: 15%;
+    color: rgb(65, 110, 112); 
+}
+

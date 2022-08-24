@@ -1,0 +1,22 @@
+.carDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: clamp(250px, 80%, 1500px);
+    margin: 2% auto;
+}
+
+.carDetails__details {
+    text-align: center;
+    padding: 1% 4%;
+    box-shadow: 0px 0px 3px grey;
+}
+
+.carDetails__details p {
+    font-size: clamp(20px, 1.2vw, 40px);
+}
+
+.carDetails__img {
+    width: 40%;
+}
