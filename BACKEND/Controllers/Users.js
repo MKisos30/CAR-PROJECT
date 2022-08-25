@@ -92,15 +92,20 @@ exports.userOut = (req, res) => {
 }
 
 exports.addToCart = async (req, res) => {
-    const { carId } = req.body
-    const { userInfo } = req.cookies
-    const userId = userInfo.id
+    try {
+        const { carId } = req.body
+        const { userInfo } = req.cookies
+        const userId = userInfo.id
 
-    const user = await User.findById(userId)
-    const car = await Product.findById(carId)
+        const user = await User.findById(userId)
+        const car = await Product.findById(carId)
 
-    await user.addToCart(car)
-    res.send(car)
+        await user.addToCart(car)
+        res.send(car)
+    } catch (error) {
+        res.send(error)
+    }
+    
 }
 
 function mapCartItems(cart) {
@@ -111,35 +116,49 @@ function mapCartItems(cart) {
 }
 
 exports.getUserCart = async (req, res) => {
-    const { userInfo } = req.cookies
-    const { id } = userInfo
-    const user = await User.findById(id)
+    try {
+        const { userInfo } = req.cookies
+        const { id } = userInfo
+        const user = await User.findById(id)
 
-    const userCart = await user.populate("cart.items.productId")
+        const userCart = await user.populate("cart.items.productId")
 
-    const cart = mapCartItems(userCart.cart)
-    res.send(cart)
+        const cart = mapCartItems(userCart.cart)
+        res.send(cart)
+    } catch (error) {
+        res.send(error)
+    }
+    
 }
 
 exports.removeFromCart = async (req, res) => {
-    const { carId } = req.query
-    const { userInfo } = req.cookies
-    const { id } = userInfo
-    const user = await User.findById(id)
+    try {
+        const { carId } = req.query
+        const { userInfo } = req.cookies
+        const { id } = userInfo
+        const user = await User.findById(id)
 
-    await user.removeFromCart(carId)
+        await user.removeFromCart(carId)
 
-    const userCart = await user.populate("cart.items.productId")
+        const userCart = await user.populate("cart.items.productId")
 
-    const cart = mapCartItems(userCart.cart)
-    res.send(cart)
+        const cart = mapCartItems(userCart.cart)
+        res.send(cart)
+    } catch (error) {
+        res.send(error)
+    }
+    
 }
 
 exports.getUserData = async (req, res) => {
-    const { userInfo } = req.cookies
-    const { id } = userInfo
-    const user = await User.findById(id)
-    res.send(user)
+    try {
+        const { userInfo } = req.cookies
+        const { id } = userInfo
+        const user = await User.findById(id)
+        res.send(user)
+    } catch (error) {
+        res.send(error)
+    }
 }
 
 function mapReserveItems(reserve) {
@@ -150,13 +169,17 @@ function mapReserveItems(reserve) {
 }
 
 exports.getUserReserve = async (req, res) => {
-    const { userInfo } = req.cookies
-    const { id } = userInfo
-    const user = await User.findById(id)
-
-    const userReserve = await user.populate("reserve.items.reserveId")
-
-    const reserve = mapReserveItems(userReserve.reserve)
-    res.send(reserve)
+    try {
+        const { userInfo } = req.cookies
+        const { id } = userInfo
+        const user = await User.findById(id)
+    
+        const userReserve = await user.populate("reserve.items.reserveId")
+    
+        const reserve = mapReserveItems(userReserve.reserve)
+        res.send(reserve)
+    } catch (error) {
+        res.send(error)
+    }
 }
 

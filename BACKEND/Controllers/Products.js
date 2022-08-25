@@ -31,7 +31,6 @@ exports.getByCategory = async (req, res) => {
 
         const category = await Product.find({ type })
         //res.send(category)
-        console.log(color, ccm)
 
         let filtered
         if (color.length > 0 && ccm.length > 0) {
