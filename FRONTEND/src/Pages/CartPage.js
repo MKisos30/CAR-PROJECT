@@ -15,8 +15,10 @@ const CartPage = () => {
 
   return (
   <div>
-    <Link to="/reserv">Buy now</Link>
-    <Link to="/order">Orders</Link>
+    <div className="reserve-order">
+      <Link to="/reserv" className="buyNowBut">Buy now</Link>
+      <Link to="/order" className="orderBut">Orders</Link>
+    </div>
     <div className="cartPage">{cartItems.map(car => {
       return ( 
         <div key={car._id}>

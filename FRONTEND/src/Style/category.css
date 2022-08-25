@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100;0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,100;1,9..144,200;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700;1,9..144,800;1,9..144,900&family=Kanit:wght@100&display=swap');
 
 .carCategory {
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row;
 }
 
 .carCategory__cars {
@@ -16,54 +18,45 @@
     width: 50%;
     font-family: 'Kanit', sans-serif;
     color: rgb(156, 75, 82);
+    font-size: 1rem;
 }
 
 .sortAndFilter {
+    border: 2px solid green;
+    background-color: white;
     display: flex;
-    flex-direction: row;
-    width: 80%;
-    margin: 0.5% auto;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    justify-content: space-around;
+    padding: 1%;
+    margin: 5%;
+    height: 80vh;
+    margin-top: 8%;
 }
-
-.sortDisplay, .filterColorDisplay,.filterCcmDisplay {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0% 1%;
-    padding: 0% 1%;
-    width: 50%;
-}
-
-
-.sortDisplay, .filterColorDisplay {
-    border-right: 1px solid black;
-}
-
-.sortDisplay__title, .filterColorDisplay__title, .filterCcmDisplay__title {
-    width: 7em;
-}
-
-
-
-
-/* .filterColorDisplay__title {
-     width: 7em; 
-} */
-
-
-
-/* .filterCcmDisplay__title {
-    width: 30%; 
-} */
-
-/* .filterCcmDisplay input {
-    width: 10%;
-} */
 
 .activeColor {
     color: blue;
     font-weight: bold;
+}
+
+.filterCcmDisplay  {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sortDisplay button {
+    margin: 3%;
+}
+
+.carsColor {
+    margin: 4%;
 }

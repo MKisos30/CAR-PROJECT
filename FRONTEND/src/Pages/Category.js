@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link , useParams, Outlet} from 'react-router-dom'
+import { Link , useParams, Outlet, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import { carState, carStatus, getByCategoryCars } from '../Redux-Store/Reducers/carSlice'
 
@@ -7,6 +7,7 @@ const Category = () => {
   const products = useSelector(carState)
   const {category} = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [title, setTitle]= useState('')
   const [sortChoose, setSortChoose] = useState('asc')
@@ -23,6 +24,12 @@ const Category = () => {
 
   const sortByPriceAsc = (a, b) => a.price - b.price
   const sortByPriceDesc = (a, b) => b.price - a.price
+  console.log(color)
+
+  const handleColor = (event) => {
+    setColor(event.target.value)
+    navigate(`/${category}`)
+  }
 
   return (
     <div className="carCategory">
@@ -42,48 +49,15 @@ const Category = () => {
         
         <div className='filterColorDisplay'>
           <div className='filterColorDisplay__title'>Filter by color:</div>
-          <button
-            onClick={() => {
-              setColor("")
-            }}
-            className={color === "" ? "activeSort" : null}
-          >All</button>
-          <button
-            onClick={() => {
-              setColor("red")
-            }}
-            className={color === "red" ? "activeSort" : null}
-          >Red</button>
-          <button
-            onClick={() => {
-              setColor("white")
-            }}
-            className={color === "white" ? "activeSort" : null}
-          >White</button>
-          <button
-            onClick={() => {
-              setColor("blue")
-            }}
-            className={color === "blue" ? "activeSort" : null}
-          >Blue</button>
-          <button
-            onClick={() => {
-              setColor("black")
-            }}
-            className={color === "black" ? "activeSort" : null}
-          >Black</button>
-          <button
-            onClick={() => {
-              setColor("orange")
-            }}
-            className={color === "orange" ? "activeSort" : null}
-          >Orange</button>
-          <button
-            onClick={() => {
-              setColor("dark grey")
-            }}
-            className={color === "dark grey" ? "activeSort" : null}
-          >Dark grey</button>
+          <select name="cars" className="carsColor" onChange={handleColor}>
+            <option value="">All</option>
+            <option value="red">Red</option>
+            <option value="white">White</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="orange">Orange</option>
+            <option value="dark grey">Dark grey</option>
+          </select>
         </div>
 
         <div className='filterCcmDisplay'>
@@ -93,20 +67,21 @@ const Category = () => {
           <input type="number" name="ccm" placeholder='Enter Engine Capacity' onChange={(e) => { setCcm(e.target.value) }} />
         </div>
         </div>
-
-
-      <h1>{title}</h1>
-      <div className="carCategory__cars">
-        {products.length > 0 ? [...products]
-          .sort(sortChoose ==="asc"?sortByPriceAsc:sortByPriceDesc)
-          .map(item=> 
-            <Link key={item._id} to={item._id}>
-              <h2>{item.name}</h2>
-            </Link>
-          ) : <div>Not found</div>
-        }
-      </div>
-      <Outlet/>
+        
+        <div className="categories">
+          <h1>{title}</h1>
+          <div className="carCategory__cars">
+            {products.length > 0 ? [...products]
+              .sort(sortChoose ==="asc"?sortByPriceAsc:sortByPriceDesc)
+              .map(item=> 
+                <Link key={item._id} to={item._id}>
+                  <h2>{item.name}</h2>
+                </Link>
+              ) : <div>Not found</div>
+            }
+          </div>
+          <Outlet/>
+        </div>
     </div>
   )
 }

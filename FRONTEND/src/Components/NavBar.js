@@ -35,15 +35,6 @@ const NavBar = () => {
     dispatch(userLogout())
   }
 
-  // useEffect(() => {
-  //   if (authstatus === "succses") {
-  //     if (loginUser.userLogin === false) {
-  //       dispatch(authStatusChange())
-  //       navigate('/')
-  //     }
-  //   }
-  // }, [authstatus, dispatch, loginUser, navigate])
-
   useEffect(() => {
     if (Object.keys(search).length > 0) {
       if (search.ok === true) {

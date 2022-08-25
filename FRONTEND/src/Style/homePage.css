@@ -5,7 +5,7 @@
     font-size: 3rem;
 }
 
-.categories {
+.carCategories {
     width: clamp(250px, 80%, 1500px);
     margin: 2% auto;
     display: grid;
@@ -13,7 +13,7 @@
     justify-items: center;
 }
 
-.categories a {
+.carCategories a {
     margin: 6% 0%;
     width: 40%;
     font-size: clamp(20px, 1.8vw, 50px);

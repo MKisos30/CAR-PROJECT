@@ -14,7 +14,7 @@ const HomePage = () => {
     return (
       <div>
         <h1 className="homePage-title">ROLO MOTOR</h1>
-        <div className="categories">
+        <div className="carCategories">
           {
           arrOfCategory.map((item, index) => {
             return (
