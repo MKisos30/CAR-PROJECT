@@ -11,7 +11,6 @@ mongoose();
 app.use(express.static('../frontend/build'))
 app.use(express.json())
 
-
 app.use('/product', require('./Routes/Product'));
 app.use('/user', require("./Routes/User"));
 app.use('/reserve', require("./Routes/Reserve"));

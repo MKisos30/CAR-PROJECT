@@ -11,15 +11,8 @@ exports.showAllProducts = async (req, res) => {
 
 exports.addNewProduct = async (req, res) => {
     try {
-        const { userInfo } = req.cookies
-
-        if (userInfo && userInfo.role === "admin") {
-            const { name, type, color, price, engineCapacity, img, folder } = req.body
-            const newItem = new Product({ name, type, color, price, engineCapacity, img, folder })
-            await newItem.save();
-            const products = await Product.find();
-            res.send(products);
-        }
+        const data = await Product.create(req.body)
+        res.send(data);
     } catch (error) {
         res.send(error)
     }
@@ -30,7 +23,6 @@ exports.getByCategory = async (req, res) => {
         const { type, color, ccm } = req.query;
 
         const category = await Product.find({ type })
-        //res.send(category)
 
         let filtered
         if (color.length > 0 && ccm.length > 0) {
