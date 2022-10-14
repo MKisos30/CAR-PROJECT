@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5482;
 const mongoose = require('./Utils/ConectDB')
-
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
 
