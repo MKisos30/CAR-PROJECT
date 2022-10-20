@@ -4,10 +4,12 @@ const app = express();
 const PORT = process.env.PORT || 5482;
 const mongoose = require('./Utils/ConectDB')
 const cookieParser = require('cookie-parser')
+const path  = require('path');
+
 app.use(cookieParser())
 
 mongoose();
-app.use(express.static('../frontend/build'))
+app.use(express.static(path.resolve(__dirname, '..', 'FRONTEND','build')))
 app.use(express.json())
 
 app.use('/product', require('./Routes/Product'));
